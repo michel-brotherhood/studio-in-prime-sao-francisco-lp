@@ -6,9 +6,11 @@ permissions:
   contents: write
 jobs:
   importar:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
+      - name: Instalar ffmpeg
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
       - name: Baixar, comprimir e gerar loops
         run: |
           set -euo pipefail
