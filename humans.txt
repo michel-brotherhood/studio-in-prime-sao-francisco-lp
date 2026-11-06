@@ -1,0 +1,7 @@
+/* TEAM */
+Desenvolvimento: Michel Brotherhood
+Feito por Michel Brotherhood
+
+/* SITE */
+Cliente: Studio In Prime São Francisco
+Stack: HTML, CSS, JavaScript
