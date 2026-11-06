@@ -10,7 +10,7 @@ Landing estática (HTML/CSS/JS), mobile first, sem build. Deploy: qualquer hosti
 ## Antes de publicar
 | Item | Situação |
 |---|---|
-| Logo | O arquivo recebido diz **"Clube Prime"**. Confirmar com o cliente se é o logo correto para a unidade "Studio In Prime" |
+| Logo | Atualizado para o logotipo "StudioInPrime" (anexo do cliente). Variante clara para fundo claro e variante clareada para fundo escuro em `assets/logo-*.webp`; favicon gerado do símbolo "S" |
 | Club Teen Prime | Logo recebido, mas **não está no copy** (público de 12 a 16 anos). Não incluído. Se houver oferta teen, criar seção própria |
 | WhatsApp | +55 21 99033-6065 (informado pelo responsável) |
 | Grade das coletivas | Não recebida. O CTA "Ver horários das coletivas" abre o WhatsApp. Se vier a grade, criar seção própria |
@@ -28,6 +28,22 @@ Landing estática (HTML/CSS/JS), mobile first, sem build. Deploy: qualquer hosti
 | Auditoria responsiva | Testado em 320, 360, 390, 430, 768, 1024, 1280, 1536 px e celular deitado (844x390): sem rolagem horizontal, sem alvo de toque abaixo de 44 px, sem fonte abaixo de 12 px. Testar também em aparelhos reais (iOS Safari e Android Chrome) |
 | Deploy (Vercel) | `vercel.json` já incluído (cache de assets e cabeçalhos básicos). **Contém `X-Robots-Tag: noindex`** para a versão de teste não ser indexada: remover esse cabeçalho no lançamento, junto com a definição do domínio e do `canonical` |
 | Ticker | Animação para ao passar o mouse e é desligada com "reduzir movimento" do sistema. Está oculto para leitores de tela (o conteúdo existe nos cards) |
+
+| CTA da experimental | Todos os CTAs da aula experimental (cabeçalho, hero, seção Experimental, fechamento, botão flutuante) usam `https://wa.me/5521990336065?text=` com a mensagem da experimental. Os demais links mantêm mensagem do próprio assunto |
+| Oferta | A página menciona **uma** aula gratuita. Até três aulas, All Day e valores citados em reunião aguardam validação comercial e não estão na página |
+| Animações | Botões 3D (borda inferior, brilho, varredura de luz, estado pressionado), revelação ao rolar, entrada do hero, hovers e barra de progresso. Tudo desligado com "reduzir movimento" |
+| Canonical / imagem social | Ainda não existem; manter pendente até definir domínio e foto real |
+
+| Planos oculto | A seção `#planos` está no HTML com o atributo `hidden`, fora do menu e sem CTA "Comparar planos" no hero, porque o foco da LP é a aula experimental. Para reativar: remover `hidden`, recolocar o link no menu e o CTA secundário no hero |
+| Texto de bem-estar | A seção Conforto abre com o texto sugerido pelo responsável ("clube exclusivo", massagens inclusas nos planos...). Confirmado pelo responsável; conferir com o cliente a frase "massagens inclusas nos planos" (o briefing citava só o Plano Prime) |
+| Diferenciais | Nova seção `#diferenciais` (menu e header) com 6 cards e CTA da experimental. Textos derivados do copy do cliente, sem promessas novas |
+| CTA do header | Fica oculto no hero (que já tem o CTA) e aparece, com animação, quando o CTA do hero sai da tela; junto com o botão flutuante |
+
+| Galeria | Seção `#galeria`: carrossel com 12 fotos da unidade (`assets/fotos/`, WebP 900 px, carregamento sob demanda), setas, contador e teclado. Fora da seleção: foto do console de esteira, foto com cliente deitada na poltrona de massagem e uma segunda sala de massagem repetida |
+| Vídeo do fundador | Passa a tocar mudo e em loop quando está visível, com botões de pausa e de som. Não toca sozinho com "reduzir movimento" |
+| Rodapé e privacidade | Rodapé com menu, redes (Instagram `studioin_prime`, Facebook `studioinoficial`), endereço, horários e link para `privacidade.html` (texto LGPD escrito conforme o que o site faz hoje: sem formulário, WhatsApp, Google Maps e Google Fonts). CNPJ 59.959.806/0001-54 informado pelo responsável (dígitos verificadores válidos; razão social e situação cadastral não conferidos na Receita, porque as consultas públicas ficaram inacessíveis). Aparece no rodapé e na seção 1 da política. Se instalar GA4/Meta Pixel, atualizar a política e avaliar aviso de cookies |
+
+| Hero: vídeos | Rotação entre o vídeo do hero, os clipes do espaço (Neon e Pedalar) e um vídeo de musculação gerado por IA (Magnific, Seedance 2.0 Mini; `hero-musculacao-wide/tall.mp4`, sem pessoas nem texto); o clipe de Spinning saiu da rotação. Botão de play/pausa removido do hero (continua sem tocar com "reduzir movimento"). |
 
 ## Dados confirmados
 - Endereço: Av. Rui Barbosa, 251, São Francisco, Niterói, RJ, CEP 24360-440
