@@ -286,3 +286,9 @@ a, button { touch-action: manipulation; }
 /* Tablets e celular deitado */
 @media (min-width: 480px) and (max-width: 899px) { .hero h1 { font-size: clamp(3.6rem, 9.5vw, 5.4rem); max-width: 20ch; } }
 @media (max-height: 520px) and (orientation: landscape) { .hero { min-height: 0; padding-top: 96px; } .hero h1 { font-size: clamp(2.6rem, 7vw, 3.6rem); max-width: 24ch; } .hero .lead { font-size: 1rem; } .hero__factswrap { padding-bottom: 56px; } }
+
+/* Mobile: vídeo mais visível e botão de pausa fora do texto */
+@media (max-width: 899px) {
+  .hero { padding-top: 140px; }
+  .hero__shade { background: linear-gradient(180deg, rgba(35,31,32,.5) 0%, rgba(35,31,32,.05) 25%, rgba(35,31,32,.68) 55%, rgba(35,31,32,.94) 80%, var(--dark) 100%); }
+}

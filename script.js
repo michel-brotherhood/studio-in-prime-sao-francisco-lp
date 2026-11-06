@@ -86,7 +86,9 @@ document.querySelectorAll('video[data-track]').forEach((v) => {
   const v = document.querySelector('.hero__video'), btn = document.getElementById('hero-pause');
   if (!v) return;
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const src = matchMedia('(min-width: 900px)').matches ? v.dataset.wide : v.dataset.tall;
+  const wide = matchMedia('(min-width: 900px)').matches;
+  const src = wide ? v.dataset.wide : v.dataset.tall;
+  if (!wide) v.poster = 'assets/video/hero-poster-tall.webp';
   v.addEventListener('loadeddata', () => { v.classList.add('is-ready'); if (btn) btn.classList.add('is-on'); }, { once: true });
   v.addEventListener('error', () => v.removeAttribute('src'), { once: true });
   v.src = src;
