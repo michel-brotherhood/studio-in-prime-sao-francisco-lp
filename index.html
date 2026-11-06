@@ -14,9 +14,9 @@
   <meta property="og:locale" content="pt_BR">
   <meta property="og:title" content="Musculação e Pilates em Niterói | Studio In Prime São Francisco">
   <meta property="og:description" content="Musculação personalizada com hora marcada, Pilates e aulas coletivas em São Francisco, Niterói. Agende sua aula experimental gratuita pelo WhatsApp.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/bebas-neue-latin-400-normal.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/manrope-latin-400-normal.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/manrope-latin-700-normal.woff2" crossorigin>
   <link rel="icon" type="image/png" sizes="48x48" href="assets/favicon-48.png">
   <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png">
   <link rel="apple-touch-icon" href="assets/favicon-192.png">
@@ -54,7 +54,7 @@
 <header class="topbar" id="topbar">
   <div class="topbar__in">
     <a class="brand" href="#topo" aria-label="Studio In Prime São Francisco">
-      <img src="assets/logo-escuro-640.webp" width="640" height="127" alt="Studio In Prime">
+      <img fetchpriority="high" src="assets/logo-escuro-640.webp" width="640" height="127" alt="Studio In Prime">
     </a>
     <nav class="nav" aria-label="Principal">
       <a href="#modalidades">Modalidades</a>
@@ -227,22 +227,23 @@
     </div>
     <div class="gal" role="group" aria-roledescription="carrossel" aria-label="Fotos da unidade">
       <div class="gal__track" id="gal-track" tabindex="0" aria-label="Fotos da unidade, role para os lados">
-        <figure class="gal__item" role="group" aria-roledescription="slide" aria-label="1 de 12"><img src="assets/fotos/fachada.webp" width="900" height="1121" alt="Fachada do Studio In Prime com letreiro luminoso e pórtico laranja" loading="lazy" decoding="async"><figcaption>Fachada</figcaption></figure>
-        <figure class="gal__item" role="group" aria-roledescription="slide" aria-label="2 de 12"><img src="assets/fotos/musculacao.webp" width="900" height="1121" alt="Salão de musculação com equipamentos, piso de madeira e iluminação de LED" loading="lazy" decoding="async"><figcaption>Musculação</figcaption></figure>
-        <figure class="gal__item" role="group" aria-roledescription="slide" aria-label="3 de 12"><img src="assets/fotos/peso-livre.webp" width="900" height="1121" alt="Área de peso livre com barras, anilhas e espelhos com iluminação alaranjada" loading="lazy" decoding="async"><figcaption>Área de peso livre</figcaption></figure>
-        <figure class="gal__item" role="group" aria-roledescription="slide" aria-label="4 de 12"><img src="assets/fotos/cardio.webp" width="900" height="1121" alt="Área de cardio com esteiras, bicicletas ergométricas e simulador de escada" loading="lazy" decoding="async"><figcaption>Cardio</figcaption></figure>
-        <figure class="gal__item" role="group" aria-roledescription="slide" aria-label="5 de 12"><img src="assets/fotos/sala-spinning.webp" width="900" height="1121" alt="Sala de Spinning com bicicletas em plataforma e iluminação de LED azul no teto" loading="lazy" decoding="async"><figcaption>Sala de Spinning</figcaption></figure>
-        <figure class="gal__item" role="group" aria-roledescription="slide" aria-label="6 de 12"><img src="assets/fotos/pilates-reformers.webp" width="900" height="1121" alt="Sala de Pilates com reformers de madeira, espelho iluminado e luminária de lâmpadas" loading="lazy" decoding="async"><figcaption>Pilates</figcaption></figure>
-        <figure class="gal__item" role="group" aria-roledescription="slide" aria-label="7 de 12"><img src="assets/fotos/pilates-cadillac.webp" width="900" height="1121" alt="Sala de Pilates com Cadillac, reformers, ladder barrel e espelho ao fundo" loading="lazy" decoding="async"><figcaption>Pilates com Cadillac</figcaption></figure>
-        <figure class="gal__item" role="group" aria-roledescription="slide" aria-label="8 de 12"><img src="assets/fotos/sala-massagem.webp" width="900" height="1121" alt="Sala de massagem com maca, espelho iluminado e parede em cimento queimado" loading="lazy" decoding="async"><figcaption>Sala de massagem</figcaption></figure>
-        <figure class="gal__item" role="group" aria-roledescription="slide" aria-label="9 de 12"><img src="assets/fotos/vestiario.webp" width="900" height="1121" alt="Vestiário com bancada, pia dupla, parede verde e neon roxo com o símbolo do estúdio" loading="lazy" decoding="async"><figcaption>Vestiário</figcaption></figure>
-        <figure class="gal__item" role="group" aria-roledescription="slide" aria-label="10 de 12"><img src="assets/fotos/area-apoio.webp" width="900" height="1121" alt="Área de apoio com bancada, prateleiras, cafeteira e geladeira de bebidas" loading="lazy" decoding="async"><figcaption>Área de apoio</figcaption></figure>
-        <figure class="gal__item" role="group" aria-roledescription="slide" aria-label="11 de 12"><img src="assets/fotos/corredor.webp" width="900" height="1121" alt="Corredor com parede verde e geladeira de água iluminada" loading="lazy" decoding="async"><figcaption>Corredor de acesso</figcaption></figure>
-        <figure class="gal__item" role="group" aria-roledescription="slide" aria-label="12 de 12"><img src="assets/fotos/toalhas.webp" width="900" height="1121" alt="Toalhas de treino bordadas com a marca Studio In Prime" loading="lazy" decoding="async"><figcaption>Toalhas de treino</figcaption></figure>
+        <figure class="gal__item" aria-label="1 de 12"><img src="assets/fotos/fachada.webp" width="900" height="1121" alt="Fachada do Studio In Prime com letreiro luminoso e pórtico laranja" loading="lazy" decoding="async"><figcaption>Fachada</figcaption></figure>
+        <figure class="gal__item" aria-label="2 de 12"><img src="assets/fotos/musculacao.webp" width="900" height="1121" alt="Salão de musculação com equipamentos, piso de madeira e iluminação de LED" loading="lazy" decoding="async"><figcaption>Musculação</figcaption></figure>
+        <figure class="gal__item" aria-label="3 de 12"><img src="assets/fotos/peso-livre.webp" width="900" height="1121" alt="Área de peso livre com barras, anilhas e espelhos com iluminação alaranjada" loading="lazy" decoding="async"><figcaption>Área de peso livre</figcaption></figure>
+        <figure class="gal__item" aria-label="4 de 12"><img src="assets/fotos/cardio.webp" width="900" height="1121" alt="Área de cardio com esteiras, bicicletas ergométricas e simulador de escada" loading="lazy" decoding="async"><figcaption>Cardio</figcaption></figure>
+        <figure class="gal__item" aria-label="5 de 12"><img src="assets/fotos/sala-spinning.webp" width="900" height="1121" alt="Sala de Spinning com bicicletas em plataforma e iluminação de LED azul no teto" loading="lazy" decoding="async"><figcaption>Sala de Spinning</figcaption></figure>
+        <figure class="gal__item" aria-label="6 de 12"><img src="assets/fotos/pilates-reformers.webp" width="900" height="1121" alt="Sala de Pilates com reformers de madeira, espelho iluminado e luminária de lâmpadas" loading="lazy" decoding="async"><figcaption>Pilates</figcaption></figure>
+        <figure class="gal__item" aria-label="7 de 12"><img src="assets/fotos/pilates-cadillac.webp" width="900" height="1121" alt="Sala de Pilates com Cadillac, reformers, ladder barrel e espelho ao fundo" loading="lazy" decoding="async"><figcaption>Pilates com Cadillac</figcaption></figure>
+        <figure class="gal__item" aria-label="8 de 12"><img src="assets/fotos/sala-massagem.webp" width="900" height="1121" alt="Sala de massagem com maca, espelho iluminado e parede em cimento queimado" loading="lazy" decoding="async"><figcaption>Sala de massagem</figcaption></figure>
+        <figure class="gal__item" aria-label="9 de 12"><img src="assets/fotos/vestiario.webp" width="900" height="1121" alt="Vestiário com bancada, pia dupla, parede verde e neon roxo com o símbolo do estúdio" loading="lazy" decoding="async"><figcaption>Vestiário</figcaption></figure>
+        <figure class="gal__item" aria-label="10 de 12"><img src="assets/fotos/area-apoio.webp" width="900" height="1121" alt="Área de apoio com bancada, prateleiras, cafeteira e geladeira de bebidas" loading="lazy" decoding="async"><figcaption>Área de apoio</figcaption></figure>
+        <figure class="gal__item" aria-label="11 de 12"><img src="assets/fotos/corredor.webp" width="900" height="1121" alt="Corredor com parede verde e geladeira de água iluminada" loading="lazy" decoding="async"><figcaption>Corredor de acesso</figcaption></figure>
+        <figure class="gal__item" aria-label="12 de 12"><img src="assets/fotos/toalhas.webp" width="900" height="1121" alt="Toalhas de treino bordadas com a marca Studio In Prime" loading="lazy" decoding="async"><figcaption>Toalhas de treino</figcaption></figure>
       </div>
       <div class="wrap gal__bar">
         <span class="gal__count" id="gal-count" aria-live="off">1 / 12</span>
         <div class="gal__nav">
+          <button class="gal__btn gal__play" id="gal-play" type="button" aria-label="Pausar rotação automática" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-pause" d="M9 6v12M15 6v12"/><path class="i-play" d="M8 5.5l11 6.5-11 6.5z"/></svg></button>
           <button class="gal__btn" id="gal-prev" type="button" aria-label="Foto anterior" aria-controls="gal-track"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
           <button class="gal__btn" id="gal-next" type="button" aria-label="Próxima foto" aria-controls="gal-track"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
         </div>
@@ -253,12 +254,12 @@
   <section class="section" id="dono">
     <div class="wrap dono">
       <div class="dono__copy">
-        <h2>Conheça o Pilates do Studio In</h2>
-        <p class="lead">Veja o que o fundador do Studio In conta sobre o Pilates da unidade e fale com a equipe para conhecer os horários.</p>
+        <h2>Conheça o Studio In Prime</h2>
+        <p class="lead">Veja o que o fundador do Studio In Prime conta sobre o Pilates da unidade e fale com a equipe para conhecer os horários.</p>
         <a aria-label="Quero saber mais sobre o Pilates pelo WhatsApp" class="btn btn--wa btn--primary" href="https://wa.me/5521990336065?text=Ol%C3%A1!%20Assisti%20ao%20v%C3%ADdeo%20e%20quero%20saber%20mais%20sobre%20o%20Pilates%20do%20Studio%20In%20Prime%20S%C3%A3o%20Francisco." data-cta="dono" target="_blank" rel="noopener"><svg class="i-wa" aria-hidden="true"><use href="#i-wa"/></svg><span>Quero saber mais</span></a>
       </div>
       <div class="dono__video reel">
-        <video muted loop playsinline preload="metadata" width="540" height="960" poster="assets/video/mensagem-dono.webp" data-track="mensagem-dono" aria-label="Mensagem do fundador do Studio In sobre o Pilates (sem som; use o botão para ativar o áudio)">
+        <video muted loop playsinline preload="metadata" width="540" height="960" poster="assets/video/mensagem-dono.webp" data-track="mensagem-dono" aria-label="Mensagem do fundador do Studio In Prime sobre o Pilates (sem som; use o botão para ativar o áudio)">
           <source src="assets/video/mensagem-dono.mp4" type="video/mp4">
         </video>
         <button class="reel__btn" type="button" aria-label="Pausar vídeo"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-pause" d="M8 5v14M16 5v14"/><path class="i-play" d="M8 5l11 7-11 7z"/></svg></button>
@@ -399,8 +400,8 @@
   </div>
 </footer>
 
-<a class="float-wa" href="https://wa.me/5521990336065?text=Ol%C3%A1%21%20Quero%20agendar%20uma%20aula%20experimental%20gratuita%20na%20unidade%20Studio%20In%20Prime%20S%C3%A3o%20Francisco.%20Quais%20hor%C3%A1rios%20est%C3%A3o%20dispon%C3%ADveis%3F" data-cta="float" target="_blank" rel="noopener" aria-label="Agendar aula experimental gratuita pelo WhatsApp">
-  <svg class="i-wa" aria-hidden="true"><use href="#i-wa"/></svg><span class="float-wa__txt">Quero agendar uma aula experimental gratuita</span>
+<a class="float-wa" href="https://wa.me/5521990336065?text=Ol%C3%A1%21%20Quero%20agendar%20uma%20aula%20experimental%20gratuita%20na%20unidade%20Studio%20In%20Prime%20S%C3%A3o%20Francisco.%20Quais%20hor%C3%A1rios%20est%C3%A3o%20dispon%C3%ADveis%3F" data-cta="float" target="_blank" rel="noopener" aria-label="Quero agendar agora: aula experimental gratuita pelo WhatsApp">
+  <svg class="i-wa" aria-hidden="true"><use href="#i-wa"/></svg><span class="float-wa__txt">Quero agendar agora</span>
 </a>
 
 <script src="script.js" defer></script>

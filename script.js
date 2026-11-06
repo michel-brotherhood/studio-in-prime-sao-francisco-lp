@@ -39,7 +39,9 @@ document.querySelectorAll('video[data-track]').forEach((v) => {
     });
     if ('IntersectionObserver' in window) {
       new IntersectionObserver(([entry]) => {
-        if (entry.isIntersecting) { if (!userPaused) v.play().catch(() => {}); }
+        if (entry.isIntersecting) {
+          if (!userPaused) v.play().catch(() => { if (!v.muted) { v.muted = true; v.play().catch(() => {}); } });
+        }
         else v.pause();
       }, { threshold: 0.35 }).observe(reel);
     } else if (!userPaused) {
@@ -190,31 +192,60 @@ document.querySelectorAll('video[data-track]').forEach((v) => {
   const b = document.querySelector('.reel__snd');
   if (!b) return;
   const v = b.closest('.reel').querySelector('video');
-  b.addEventListener('click', () => {
-    v.muted = !v.muted;
+  // O botão reflete o estado real do vídeo; o som escolhido pelo usuário persiste ao sair e voltar da seção.
+  const paint = () => {
     b.setAttribute('aria-pressed', String(!v.muted));
     b.setAttribute('aria-label', v.muted ? 'Ativar som' : 'Desativar som');
     b.classList.toggle('is-on', !v.muted);
+  };
+  v.addEventListener('volumechange', paint);
+  b.addEventListener('click', () => {
+    v.muted = !v.muted;
+    if (!v.muted) { v.volume = 1; if (v.paused) v.play().catch(() => {}); }
+    paint();
   });
 })();
 
-// Carrossel de fotos: rolagem com snap, setas, contador e teclado.
+// Carrossel de fotos: rolagem com snap, setas, contador, teclado e rotação automática em loop.
 (() => {
   const t = document.getElementById('gal-track');
   if (!t) return;
-  const prev = document.getElementById('gal-prev'), next = document.getElementById('gal-next'), cnt = document.getElementById('gal-count');
+  const prev = document.getElementById('gal-prev'), next = document.getElementById('gal-next'), cnt = document.getElementById('gal-count'), play = document.getElementById('gal-play');
   const items = [...t.children];
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const behavior = reduce ? 'auto' : 'smooth';
   const step = () => (items[1] ? items[1].offsetLeft - items[0].offsetLeft : t.clientWidth);
+  const atEnd = () => t.scrollLeft + t.clientWidth >= t.scrollWidth - 4;
   const idx = () => Math.min(items.length - 1, Math.round(t.scrollLeft / step()));
-  const sync = () => {
-    const i = idx(), end = t.scrollLeft + t.clientWidth >= t.scrollWidth - 4;
-    cnt.textContent = `${end ? items.length : i + 1} / ${items.length}`;
-    prev.disabled = t.scrollLeft <= 4; next.disabled = end;
+  const sync = () => { cnt.textContent = `${atEnd() ? items.length : idx() + 1} / ${items.length}`; };
+  // Loop: depois da última foto volta à primeira; antes da primeira vai à última.
+  const go = (d) => {
+    if (d > 0 && atEnd()) t.scrollTo({ left: 0, behavior });
+    else if (d < 0 && t.scrollLeft <= 4) t.scrollTo({ left: t.scrollWidth, behavior });
+    else t.scrollBy({ left: d * step(), behavior });
   };
-  const go = (d) => t.scrollBy({ left: d * step(), behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
   prev.addEventListener('click', () => go(-1)); next.addEventListener('click', () => go(1));
   t.addEventListener('keydown', (e) => { if (e.key === 'ArrowRight') { e.preventDefault(); go(1); } if (e.key === 'ArrowLeft') { e.preventDefault(); go(-1); } });
   let q = false;
   t.addEventListener('scroll', () => { if (!q) { q = true; requestAnimationFrame(() => { sync(); q = false; }); } }, { passive: true });
   addEventListener('resize', sync); sync();
+
+  // Rotação automática: só com a seção visível, pausa com toque/mouse/foco e tem botão de pausa (WCAG 2.2.2).
+  let userOff = reduce, visible = false, hold = false, timer = 0;
+  const paintPlay = () => {
+    play.classList.toggle('is-paused', userOff);
+    play.setAttribute('aria-pressed', String(userOff));
+    play.setAttribute('aria-label', userOff ? 'Retomar rotação automática' : 'Pausar rotação automática');
+  };
+  const tick = () => { clearTimeout(timer); if (userOff || !visible || hold || document.hidden) return; timer = setTimeout(() => { go(1); tick(); }, 3200); };
+  play.addEventListener('click', () => { userOff = !userOff; paintPlay(); tick(); });
+  const holdOn = () => { hold = true; clearTimeout(timer); };
+  const holdOff = () => { hold = false; tick(); };
+  t.addEventListener('pointerenter', holdOn); t.addEventListener('pointerleave', holdOff);
+  t.addEventListener('touchstart', holdOn, { passive: true });
+  t.addEventListener('touchend', () => setTimeout(holdOff, 4000), { passive: true });
+  t.addEventListener('focusin', holdOn); t.addEventListener('focusout', holdOff);
+  document.addEventListener('visibilitychange', tick);
+  if ('IntersectionObserver' in window) new IntersectionObserver(([e]) => { visible = e.isIntersecting; tick(); }, { threshold: 0.4 }).observe(t);
+  paintPlay();
 })();
