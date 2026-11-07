@@ -607,3 +607,9 @@ html.menu-open, html.menu-open body { overflow: hidden; height: 100%; }
 .gal__play.is-paused .i-pause { display: none; }
 .gal__play.is-paused .i-play { display: block; fill: currentColor; stroke: none; }
 .gal__play svg { stroke-width: 2.6; }
+
+/* Desktop: botão do header sem corte; cards de modalidades sem vazio */
+.topbar .btn--small { flex: none; }
+.js.cta-on .topbar .btn--small { max-width: 360px; }
+.mod .link { margin-top: 22px; }
+@media (min-width: 900px) { .mods { align-items: start; } }

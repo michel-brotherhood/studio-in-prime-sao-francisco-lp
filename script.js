@@ -77,9 +77,9 @@ document.querySelectorAll('video[data-track]').forEach((v) => {
     const [o, c] = wk ? [360, 1320] : [540, 780];
     const open = m >= o && m < c;
     const hh = (x) => `${Math.floor(x / 60)}h`;
-    tx.textContent = open ? `Aberto agora · até ${hh(c)}` : 'Fechado agora · ver horários';
-    st.classList.toggle('is-closed', !open);
-    st.hidden = false; st.classList.add('is-on');
+    // Só mostra o status quando está aberto; fora do horário, o item fica oculto.
+    if (open) { tx.textContent = `Aberto agora · até ${hh(c)}`; st.hidden = false; st.classList.add('is-on'); }
+    else { st.hidden = true; st.classList.remove('is-on'); }
   }
 })();
 
